@@ -7,7 +7,7 @@ Repository ini berisi hasil praktikum Pemrograman Mobile menggunakan **Kotlin** 
 ## 📌 Pertemuan 1: Desain & Tampilan Awal UI "Tentang Jualan"
 
 ### 🖼️ Hasil Tampilan Pertemuan 1
-![Pertemuan 1 - Tentang Jualan](docs/pertemuan1_tentang_jualan.png)
+![Pertemuan 1 - Tentang Jualan](docs/pertemuan1_tentang_jualan.jpeg)
 
 ### 📝 Penjelasan Singkat
 Pada Pertemuan 1, dibuat tampilan dasar untuk informasi aplikasi dengan komponen UI sederhana:
@@ -23,9 +23,9 @@ Pada Pertemuan 1, dibuat tampilan dasar untuk informasi aplikasi dengan komponen
 ### 🖼️ Hasil Tampilan Pertemuan 2
 
 <p align="center">
-  <img src="docs/pertemuan2_basic_info.png" width="45%" alt="Pertemuan 2 - Basic Info Screen" />
+  <img src="docs/pertemuan2_basic_info.jpeg" width="45%" alt="Pertemuan 2 - Basic Info Screen" />
   &nbsp;&nbsp;
-  <img src="docs/pertemuan2_hubungi_kami.png" width="45%" alt="Pertemuan 2 - Hubungi Kami Screen" />
+  <img src="docs/pertemuan2_hubungi_kami.jpeg" width="45%" alt="Pertemuan 2 - Hubungi Kami Screen" />
 </p>
 
 ### 📝 Penjelasan Singkat
@@ -49,9 +49,9 @@ Pada Pertemuan 1, dibuat tampilan dasar untuk informasi aplikasi dengan komponen
 ```text
 PraktikkumMobile/
 ├── docs/                             # Gambar screenshot per pertemuan
-│   ├── pertemuan1_tentang_jualan.png
-│   ├── pertemuan2_basic_info.png
-│   └── pertemuan2_hubungi_kami.png
+│   ├── pertemuan1_tentang_jualan.jpeg
+│   ├── pertemuan2_basic_info.jpeg
+│   └── pertemuan2_hubungi_kami.jpeg
 └── app/src/main/java/com/example/praktikkummobile/
     ├── MainActivity.kt               # Entry point & NavHost setup
     └── ui/
