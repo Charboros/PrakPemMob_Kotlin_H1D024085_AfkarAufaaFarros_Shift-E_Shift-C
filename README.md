@@ -1,48 +1,62 @@
 # Praktikum Pemrograman Mobile - Jetpack Compose
 
-Repository ini berisi proyek praktikum Pemrograman Mobile menggunakan **Kotlin** dan **Jetpack Compose**.
+Repository ini berisi hasil praktikum Pemrograman Mobile menggunakan **Kotlin** dan **Jetpack Compose**.
 
 ---
 
-## 📌 Daftar Pertemuan
+## 📌 Pertemuan 1: Desain & Tampilan Awal UI "Tentang Jualan"
 
-### 🚀 Pertemuan 1: Dasar-dasar Layout & Navigasi Jetpack Compose
-Pada pertemuan pertama ini, dipelajari dasar-dasar pembuatan antarmuka pengguna (UI) secara deklaratif menggunakan **Jetpack Compose**, komponen tata letak Material 3, serta sistem navigasi antar layar.
+### 🖼️ Hasil Tampilan Pertemuan 1
+![Pertemuan 1 - Tentang Jualan](docs/pertemuan1_tentang_jualan.png)
 
-#### 🛠️ Fitur & Tampilan yang Dihasilkan:
-1. **Layar Info Dasar (`BasicInfoScreen`)**:
-   - **Header & Logo**: Menampilkan logo aplikasi UMKM *JualanSawit* / produk lokal.
-   - **Teks Deskripsi**: Informasi tentang platform UMKM lokal di wilayah Kabupaten Purbalingga, Jawa Tengah.
-   - **Misi Kami (Card Component)**: Komponen `Card` yang menampilkan visi/misi aplikasi dengan tema Material 3.
-   - **Tombol Navigasi**: Tombol `"Hubungi Kami"` untuk berpindah ke layar formulir.
+### 📝 Penjelasan Singkat
+Pada Pertemuan 1, dibuat tampilan dasar untuk informasi aplikasi dengan komponen UI sederhana:
+- **Logo & Header**: Menampilkan logo melingkar **JualanSawit** pada bagian atas layar.
+- **Judul Layar**: Teks judul **"tentang jualan"**.
+- **Deskripsi**: Deskripsi singkat mengenai platform yang mewadahi produk lokal UMKM di Kabupaten Purbalingga, Jawa Tengah.
+- **Kartu Misi**: Blok informasi bertuliskan **"misi kami: memajukan UMKM lokal"**.
 
-2. **Layar Formulir Kontak (`HubungiKamiScreen`)**:
-   - **TopAppBar**: Bilah navigasi atas lengkap dengan tombol kembali (*Back Icon*).
-   - **Form Input**: Menggunakan `OutlinedTextField` untuk input *Email Anda* (dengan ikon email) dan *Pesan*.
-   - **Tata Letak Responsif**: Menggunakan `Scaffold`, `Column`, `Spacer`, dan `PaddingValues` agar tampilan rapi.
+---
 
-3. **Sistem Navigasi (`NavHost` & `NavController`)**:
-   - Pengaturan *rute* navigasi dari rute awal `basic_info` menuju `form_screen`.
+## 📌 Pertemuan 2: Styling Material 3, Navigasi, & Form Hubungi Kami
+
+### 🖼️ Hasil Tampilan Pertemuan 2
+
+<p align="center">
+  <img src="docs/pertemuan2_basic_info.png" width="45%" alt="Pertemuan 2 - Basic Info Screen" />
+  &nbsp;&nbsp;
+  <img src="docs/pertemuan2_hubungi_kami.png" width="45%" alt="Pertemuan 2 - Hubungi Kami Screen" />
+</p>
+
+### 📝 Penjelasan Singkat
+
+1. **Layar Utama (`BasicInfoScreen`)**:
+   - **Icon & Logo**: Pembaruan logo Android di bagian atas.
+   - **Teks Informasi**: Judul **"Tentang Jualan"** dan deskripsi platform UMKM.
+   - **Card Misi**: Menggunakan `Card` Material 3 berwarna *tertiary* dengan tulisan **"Misi Kami: Memajukan UMKM Lokal"**.
+   - **Tombol Navigasi**: Tombol biru di bagian bawah **"Hubungi Kami"** untuk berpindah ke layar formulir.
+
+2. **Layar Formulir (`HubungiKamiScreen`)**:
+   - **TopAppBar**: Bilah navigasi biru dengan ikon kembali (*Back Arrow*) dan judul **"Hubungi Kami"**.
+   - **Input Email**: Field `OutlinedTextField` berlabel **"Email Anda"** dilengkapi dengan ikon email.
+   - **Input Pesan**: Field `OutlinedTextField` berukuran lebih luas untuk menginput pesan dari pengguna.
+   - **Tombol Kirim**: Tombol biru bertuliskan **"Kirim Pesan"** dilengkapi dengan ikon kirim (*Send Icon*).
 
 ---
 
 ## 📁 Struktur Proyek
 
 ```text
-app/src/main/java/com/example/praktikkummobile/
-├── MainActivity.kt                  # Entry point & NavHost setup
-└── ui/
-    ├── screen/
-    │   ├── BasicInfoScreen.kt      # Layar Info Utama (Pertemuan 1)
-    │   └── HubungiKamiScreen.kt    # Layar Formulir Kontak (Pertemuan 1)
-    └── theme/                      # Konfigurasi Tema, Warna, & Tipografi
+PraktikkumMobile/
+├── docs/                             # Gambar screenshot per pertemuan
+│   ├── pertemuan1_tentang_jualan.png
+│   ├── pertemuan2_basic_info.png
+│   └── pertemuan2_hubungi_kami.png
+└── app/src/main/java/com/example/praktikkummobile/
+    ├── MainActivity.kt               # Entry point & NavHost setup
+    └── ui/
+        ├── screen/
+        │   ├── BasicInfoScreen.kt   # Layar Info Utama
+        │   └── HubungiKamiScreen.kt # Layar Form Kontak
+        └── theme/                   # Tema & Warna Material 3
 ```
-
----
-
-## 🛠️ Teknologi yang Digunakan
-- **Bahasa**: Kotlin
-- **UI Framework**: Jetpack Compose (Material 3)
-- **Navigation**: Jetpack Navigation Compose
-- **Minimum SDK**: Android 10 (API Level 29)
-- **Target SDK**: Android 15 (API Level 35/37)
