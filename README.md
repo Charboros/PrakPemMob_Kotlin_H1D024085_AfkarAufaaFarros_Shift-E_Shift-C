@@ -10,7 +10,7 @@
 ## 📝 Tugas Pertemuan 1
 **Tanggal**: Selasa, 1 September 2026
 
-<img src="docs/tugas-1.png" width="300" alt="Tugas Pertemuan 1" />
+<img src="docs/pertemuan1_tentang_jualan.jpeg" width="300" alt="Tugas Pertemuan 1" />
 
 **Kesimpulan Praktikum:**  
 Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pengembangan antarmuka secara deklaratif menggunakan **Jetpack Compose**. Mahasiswa mempelajari penggunaan komponen UI dasar seperti `Text`, `Image`, `Column`, `Row`, `Spacer`, dan `Card` untuk menyusun tata letak halaman informasi dasar aplikasi (*Tentang Jualan*).
@@ -21,9 +21,9 @@ Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pen
 **Tanggal**: Selasa, 8 September 2026
 
 <p>
-  <img src="docs/tugas-2.png" width="280" alt="Pertemuan 2 - Basic Info Screen" />
+  <img src="pertemuan2_basic_info.jpeg" width="280" alt="Pertemuan 2 - Basic Info Screen" />
   &nbsp;&nbsp;
-  <img src="docs/tugas-2-form.png" width="280" alt="Pertemuan 2 - Hubungi Kami Screen" />
+  <img src="docs/pertemuan2_hubungi_kami.jpeg" width="280" alt="Pertemuan 2 - Hubungi Kami Screen" />
 </p>
 
 **Kesimpulan Praktikum:**  
@@ -35,11 +35,11 @@ Pertemuan kedua berfokus pada implementasi navigasi antar layar dan formulir int
 **Tanggal**: Selasa, 15 September 2026
 
 <p>
-  <img src="docs/tugas-3.png" width="280" alt="Pertemuan 3 - Kategori Makanan" />
+  <img src="docs/31.jpeg" width="280" alt="Pertemuan 3 - Kategori Makanan" />
   &nbsp;&nbsp;
-  <img src="docs/tugas-3.png" width="280" alt="Pertemuan 3 - Kategori Minuman" />
+  <img src="docs/32-3.jpeg" width="280" alt="Pertemuan 3 - Kategori Minuman" />
   &nbsp;&nbsp;
-  <img src="docs/tugas-3.png" width="280" alt="Pertemuan 3 - Kategori Kerajinan" />
+  <img src="docs/33-3.jpeg" width="280" alt="Pertemuan 3 - Kategori Kerajinan" />
 </p>
 
 **Kesimpulan Praktikum:**  
