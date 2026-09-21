@@ -10,7 +10,7 @@
 ## 📝 Tugas Pertemuan 1
 **Tanggal**: Selasa, 1 September 2026
 
-![Tugas Pertemuan 1](docs/tugas-1.png)
+<img src="docs/tugas-1.png" width="320" alt="Tugas Pertemuan 1" />
 
 **Kesimpulan Praktikum:**  
 Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pengembangan antarmuka secara deklaratif menggunakan **Jetpack Compose**. Mahasiswa mempelajari penggunaan komponen UI dasar seperti `Text`, `Image`, `Column`, `Row`, `Spacer`, dan `Card` untuk menyusun tata letak halaman informasi dasar aplikasi (*Tentang Jualan*).
@@ -20,7 +20,7 @@ Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pen
 ## 📝 Tugas Pertemuan 2
 **Tanggal**: Selasa, 8 September 2026
 
-![Tugas Pertemuan 2](docs/tugas-2.png)
+<img src="docs/tugas-2.png" width="320" alt="Tugas Pertemuan 2" />
 
 **Kesimpulan Praktikum:**  
 Pertemuan kedua berfokus pada implementasi navigasi antar layar dan formulir interaktif. Mahasiswa mempelajari penggunaan **Jetpack Navigation Compose** (`NavHost` & `NavController`), struktur layout `Scaffold` dengan `TopAppBar`, serta komponen input data seperti `OutlinedTextField` dan `Button` pada halaman formulir kontak (*Hubungi Kami*).
@@ -30,7 +30,7 @@ Pertemuan kedua berfokus pada implementasi navigasi antar layar dan formulir int
 ## 📝 Tugas Pertemuan 3
 **Tanggal**: Selasa, 15 September 2026
 
-![tugas-3.png](docs/tugas-3.png)
+<img src="docs/tugas-3.png" width="320" alt="Tugas Pertemuan 3" />
 
 **Kesimpulan Praktikum:**  
 Pertemuan ketiga membahas pengelolaan data terstruktur dan antarmuka berbasis daftar/grid dinamis. Mahasiswa mempelajari pembuatan model data (`Category` & `Product`), pemanfaatan *dummy data*, pembuatan komponen berulang menggunakan `LazyRow` untuk filter kategori dan `LazyVerticalGrid` untuk daftar produk, serta penerapan *state management* (`remember` & `mutableStateOf`).
