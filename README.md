@@ -1,8 +1,8 @@
 # Laporan Praktikum Pemrograman Mobile
 
-**Nama**        : Muhammad Zaki Dzulfikar  
-**NIM**         : H1D023065  
-**Shift**       : Awal A / Akhir B  
+**Nama**        : Afkar Aufaa Farros  
+**NIM**         : H1D024085  
+**Shift**       : Awal E / Akhir C  
 **Praktikum**   : Pemrograman Mobile
 
 ---
@@ -13,7 +13,7 @@
 ![Tugas Pertemuan 1](docs/tugas-1.png)
 
 **Kesimpulan Praktikum:**  
-Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pengembangan aplikasi mobile. Mahasiswa dapat mengenali struktur proyek, alur kerja, serta pentingnya konsistensi dalam penulisan kode agar aplikasi mudah dikembangkan dan dipelihara.
+Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pengembangan antarmuka secara deklaratif menggunakan **Jetpack Compose**. Mahasiswa mempelajari penggunaan komponen UI dasar seperti `Text`, `Image`, `Column`, `Row`, `Spacer`, dan `Card` untuk menyusun tata letak halaman informasi dasar aplikasi (*Tentang Jualan*).
 
 ---
 
@@ -23,7 +23,7 @@ Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pen
 ![Tugas Pertemuan 2](docs/tugas-2.png)
 
 **Kesimpulan Praktikum:**  
-Pertemuan kedua menekankan pada implementasi fitur interaktif dalam aplikasi mobile. Mahasiswa belajar bagaimana menghubungkan antarmuka dengan logika program sehingga aplikasi dapat merespons input pengguna secara dinamis dan memberikan pengalaman yang lebih baik.
+Pertemuan kedua berfokus pada implementasi navigasi antar layar dan formulir interaktif. Mahasiswa mempelajari penggunaan **Jetpack Navigation Compose** (`NavHost` & `NavController`), struktur layout `Scaffold` dengan `TopAppBar`, serta komponen input data seperti `OutlinedTextField` dan `Button` pada halaman formulir kontak (*Hubungi Kami*).
 
 ---
 
@@ -33,4 +33,4 @@ Pertemuan kedua menekankan pada implementasi fitur interaktif dalam aplikasi mob
 ![tugas-3.png](docs/tugas-3.png)
 
 **Kesimpulan Praktikum:**  
-Pertemuan ketiga membuka wawasan tentang pengembangan aplikasi mobile yang lebih kompleks. Mahasiswa belajar bagaimana mengintegrasikan berbagai komponen dan fitur untuk menciptakan aplikasi yang lebih lengkap dan bermanfaat.
+Pertemuan ketiga membahas pengelolaan data terstruktur dan antarmuka berbasis daftar/grid dinamis. Mahasiswa mempelajari pembuatan model data (`Category` & `Product`), pemanfaatan *dummy data*, pembuatan komponen berulang menggunakan `LazyRow` untuk filter kategori dan `LazyVerticalGrid` untuk daftar produk, serta penerapan *state management* (`remember` & `mutableStateOf`).
