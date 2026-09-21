@@ -34,8 +34,13 @@ Pertemuan kedua berfokus pada implementasi navigasi antar layar dan formulir int
 ## 📝 Tugas Pertemuan 3
 **Tanggal**: Selasa, 15 September 2026
 
-<img src="docs/tugas-3.png" width="300" alt="Tugas Pertemuan 3" />  
-*(Catatan: Foto hasil Pertemuan 3)*
+<p>
+  <img src="docs/tugas-3.png" width="280" alt="Pertemuan 3 - Kategori Makanan" />
+  &nbsp;&nbsp;
+  <img src="docs/tugas-3.png" width="280" alt="Pertemuan 3 - Kategori Minuman" />
+  &nbsp;&nbsp;
+  <img src="docs/tugas-3.png" width="280" alt="Pertemuan 3 - Kategori Kerajinan" />
+</p>
 
 **Kesimpulan Praktikum:**  
 Pertemuan ketiga membahas pengelolaan data terstruktur dan antarmuka berbasis daftar/grid dinamis. Mahasiswa mempelajari pembuatan model data (`Category` & `Product`), pemanfaatan *dummy data*, pembuatan komponen berulang menggunakan `LazyRow` untuk filter kategori dan `LazyVerticalGrid` untuk daftar produk, serta penerapan *state management* (`remember` & `mutableStateOf`).
