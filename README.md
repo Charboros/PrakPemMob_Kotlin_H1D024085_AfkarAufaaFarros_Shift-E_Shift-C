@@ -44,3 +44,19 @@ Pertemuan kedua berfokus pada implementasi navigasi antar layar dan formulir int
 
 **Kesimpulan Praktikum:**  
 Pertemuan ketiga membahas pengelolaan data terstruktur dan antarmuka berbasis daftar/grid dinamis. Mahasiswa mempelajari pembuatan model data (`Category` & `Product`), pemanfaatan *dummy data*, pembuatan komponen berulang menggunakan `LazyRow` untuk filter kategori dan `LazyVerticalGrid` untuk daftar produk, serta penerapan *state management* (`remember` & `mutableStateOf`).
+
+---
+
+## 📝 Tugas Pertemuan 4
+**Tanggal**: Selasa, 22 September 2026
+
+<p>
+  <img src="docs/41.png" width="260" alt="Pertemuan 4 - Gambar 1" />
+  &nbsp;&nbsp;
+  <img src="docs/42.png" width="260" alt="Pertemuan 4 - Gambar 2" />
+  &nbsp;&nbsp;
+  <img src="docs/43.png" width="260" alt="Pertemuan 4 - Gambar 3" />
+</p>
+
+**Kesimpulan Praktikum:**  
+Pertemuan keempat berfokus pada implementasi halaman detail produk (*DetailProductScreen*), navigasi dengan pengiriman argumen (*Navigation Compose Arguments*), pengelolaan state kuantitas produk, serta penyempurnaan antarmuka agar sesuai dengan standar desain material.
