@@ -1,7 +1,6 @@
 package com.example.praktikkummobile.ui.screen
 
 import android.widget.Toast
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -40,7 +39,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -49,70 +48,92 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.praktikkummobile.R
-import com.example.praktikkummobile.data.dummy.DummyData
 import com.example.praktikkummobile.data.model.Category
 import com.example.praktikkummobile.data.model.Product
 import com.example.praktikkummobile.ui.theme.PraktikkumMobileTheme
-import kotlinx.coroutines.delay
+import com.example.praktikkummobile.ui.viewmodel.ProductUiState
+import com.example.praktikkummobile.ui.viewmodel.ProductViewModel
+import com.example.praktikkummobile.util.JualanConstants
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DaftarProdukScreen(navController: NavController? = null) {
+fun DaftarProdukScreen(
+    navController: NavController? = null,
+    viewModel: ProductViewModel
+) {
     val context = LocalContext.current
 
-    var selectedCategoryId by rememberSaveable { mutableStateOf<Int?>(DummyData.categories.firstOrNull()?.id) }
+    var selectedCategoryId by rememberSaveable { mutableStateOf<Int?>(null) }
     var searchQuery by rememberSaveable { mutableStateOf("") }
-    var isLoading by remember { mutableStateOf(false) }
-    var filteredProducts by remember { mutableStateOf<List<Product>>(emptyList()) }
+    val uiState by viewModel.uiState.collectAsState()
 
-    LaunchedEffect(key1 = selectedCategoryId, key2 = searchQuery) {
-        isLoading = true
-        delay(1000)
-
-        val filteredByCategory = if (selectedCategoryId != null) {
-            DummyData.products.filter { it.category_id == selectedCategoryId }
-        } else {
-            DummyData.products
+    when (val state = uiState) {
+        is ProductUiState.Loading -> {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
         }
-
-        filteredProducts = if (searchQuery.isBlank()) {
-            filteredByCategory
-        } else {
-            filteredByCategory.filter { it.name.contains(searchQuery, ignoreCase = true) }
+        is ProductUiState.Error -> {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = state.message,
+                    color = MaterialTheme.colorScheme.error
+                )
+            }
         }
+        is ProductUiState.Success -> {
+            if (selectedCategoryId == null && state.categories.isNotEmpty()) {
+                selectedCategoryId = state.categories.first().id
+            }
 
-        isLoading = false
+            val filteredByCategory = if (selectedCategoryId != null) {
+                state.products.filter { it.category_id == selectedCategoryId }
+            } else {
+                state.products
+            }
+
+            val filteredProducts = if (searchQuery.isBlank()) {
+                filteredByCategory
+            } else {
+                filteredByCategory.filter {
+                    it.name.contains(searchQuery, ignoreCase = true)
+                }
+            }
+
+            StatelessDaftarProduct(
+                searchQuery = searchQuery,
+                onSearchQueryChange = { searchQuery = it },
+                selectedCategoryId = selectedCategoryId,
+                onCategorySelected = { selectedCategoryId = it },
+                categories = state.categories,
+                products = filteredProducts,
+                isLoading = false,
+                onProductClick = { product ->
+                    navController?.navigate("detail/${product.id}")
+                },
+                onCartClick = {
+                    Toast.makeText(context, "Keranjang diklik", Toast.LENGTH_SHORT).show()
+                },
+                onContactUsClick = {
+                    navController?.navigate("hubungi_kami")
+                }
+            )
+        }
     }
-
-    StatelessDaftarProduct(
-        searchQuery = searchQuery,
-        onSearchQueryChange = { searchQuery = it },
-        selectedCategoryId = selectedCategoryId,
-        onCategorySelected = { selectedCategoryId = it },
-        categories = DummyData.categories,
-        products = filteredProducts,
-        isLoading = isLoading,
-        onProductClick = { product ->
-            // NOMOR 2: Pindah ke halaman detail produk
-            navController?.navigate("detail/${product.id}")
-        },
-        onCartClick = {
-            Toast.makeText(context, "Keranjang diklik", Toast.LENGTH_SHORT).show()
-        },
-        onContactUsClick = {
-            Toast.makeText(context, "Hubungi Kami diklik", Toast.LENGTH_SHORT).show()
-        }
-    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -130,7 +151,6 @@ fun StatelessDaftarProduct(
     onCartClick: () -> Unit,
     onContactUsClick: () -> Unit = {}
 ) {
-    // NOMOR 3: State untuk mengontrol DropdownMenu
     var expanded by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -146,7 +166,6 @@ fun StatelessDaftarProduct(
                         )
                     }
 
-                    // NOMOR 3: IconButton MoreVert (tiga titik) & DropdownMenu
                     IconButton(onClick = { expanded = true }) {
                         Icon(
                             imageVector = Icons.Default.MoreVert,
@@ -274,25 +293,30 @@ fun StatelessDaftarProduct(
 fun ProductItemCard(product: Product, onClick: () -> Unit) {
     Card(
         modifier = Modifier
+            .padding(all = 8.dp)
             .fillMaxWidth()
             .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
-        Column(
-            modifier = Modifier.padding(all = 12.dp)
-        ) {
-            val imageRes = R.drawable.dummy_product
+        Column(modifier = Modifier.padding(all = 12.dp)) {
+            val imageModel: Any = if (product.img == "dummy_product") {
+                R.drawable.dummy_product
+            } else {
+                "${JualanConstants.BASE_URL}img/${product.img}"
+            }
 
-            Box {
-                Image(
-                    painter = painterResource(id = imageRes),
+            Box(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                coil.compose.AsyncImage(
+                    model = imageModel,
                     contentDescription = product.name,
                     modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(1f)
                         .clip(shape = RoundedCornerShape(size = 8.dp))
-                        .background(color = Color.White),
+                        .background(color = androidx.compose.ui.graphics.Color.White),
                     contentScale = ContentScale.Fit
                 )
 
@@ -357,18 +381,48 @@ fun CategoryItem(category: Category, isSelected: Boolean, onClick: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewStatelessDaftarProduct() {
+fun PreviewDaftarProdukScreen() {
+    val sampleCategories = listOf(
+        Category(id = 1, name = "Makanan"),
+        Category(id = 2, name = "Minuman"),
+        Category(id = 3, name = "Kerajinan")
+    )
+
+    val sampleProducts = listOf(
+        Product(
+            id = 1,
+            name = "Kripik Singkong",
+            price = 15000.0,
+            stock = 10,
+            description = "Kripik gurih",
+            img = "dummy_product",
+            category_id = 1,
+            category = sampleCategories[0]
+        ),
+        Product(
+            id = 2,
+            name = "Es Durian",
+            price = 25000.0,
+            stock = 5,
+            description = "Segar",
+            img = "dummy_product",
+            category_id = 2,
+            category = sampleCategories[1]
+        )
+    )
+
     PraktikkumMobileTheme {
         StatelessDaftarProduct(
             searchQuery = "",
             onSearchQueryChange = {},
-            selectedCategoryId = DummyData.categories.firstOrNull()?.id,
+            selectedCategoryId = 1,
             onCategorySelected = {},
-            categories = DummyData.categories,
-            products = DummyData.products,
+            categories = sampleCategories,
+            products = sampleProducts,
             isLoading = false,
             onProductClick = {},
-            onCartClick = {}
+            onCartClick = {},
+            onContactUsClick = {}
         )
     }
 }

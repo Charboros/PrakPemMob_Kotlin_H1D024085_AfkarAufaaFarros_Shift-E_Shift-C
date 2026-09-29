@@ -60,3 +60,18 @@ Pertemuan ketiga membahas pengelolaan data terstruktur dan antarmuka berbasis da
 
 **Kesimpulan Praktikum:**  
 Pertemuan keempat berfokus pada implementasi halaman detail produk (*DetailProductScreen*), navigasi dengan pengiriman argumen (*Navigation Compose Arguments*), pengelolaan state kuantitas produk, serta penyempurnaan antarmuka agar sesuai dengan standar desain material.
+
+---
+
+## 📝 Tugas Pertemuan 5
+**Tanggal**: Selasa, 29 September 2026
+
+<p>
+  <img src="docs/51.jpeg" width="280" alt="Pertemuan 5 - Integrasi API & ViewModel 1" />
+  &nbsp;&nbsp;
+  <img src="docs/52.jpeg" width="280" alt="Pertemuan 5 - Integrasi API & ViewModel 2" />
+</p>
+
+**Kesimpulan Praktikum:**  
+Pertemuan kelima berfokus pada integrasi aplikasi dengan Backend API menggunakan **Retrofit**, **Coroutines**, dan **ViewModel**. Mahasiswa mempelajari cara melakukan pemanggilan jaringan (*network calls*) untuk mengambil data kategori dan produk secara asinkron, menerapkan *UI State Management* (`ProductUiState` dengan `Loading`, `Success`, dan `Error`), serta mengelola siklus hidup data dengan `StateFlow` dan `collectAsState()`.
+
